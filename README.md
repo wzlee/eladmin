@@ -1,95 +1,95 @@
-# eladmin
+<h1 style="text-align: center">EL-ADMIN 后台管理系统</h1>
+<div style="text-align: center">
 
-项目基于 Spring Boot 2.1.0 、 Spring boot Jpa、 Spring Security、redis、Vue的前后端分离的权限管理系统， 权限控制采用 RBAC 思想，支持动态路由
+[![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/elunez/eladmin/blob/master/LICENSE)
+[![star](https://gitee.com/elunez/eladmin/badge/star.svg?theme=white)](https://gitee.com/elunez/eladmin)
+[![GitHub stars](https://img.shields.io/github/stars/elunez/eladmin.svg?style=social&label=Stars)](https://github.com/elunez/eladmin)
+[![GitHub forks](https://img.shields.io/github/forks/elunez/eladmin.svg?style=social&label=Fork)](https://github.com/elunez/eladmin)
 
-#### 前端源码
-- 码云：[https://gitee.com/elunez/eladmin-qt](https://gitee.com/elunez/eladmin-qt)
-- github：[https://github.com/elunez/eladmin-qd](https://github.com/elunez/eladmin-qd)
+</div>
 
-#### 前端初始模板
-基于PanJiaChen的：[https://github.com/PanJiaChen/vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
+#### 项目简介
+一个基于 Spring Boot 2.1.0 、 Spring Boot Jpa、 JWT、Spring Security、Redis、Vue的前后端分离的后台管理系统
 
-#### 前端参考文档
-[https://panjiachen.github.io/vue-element-admin-site/zh/guide/](https://panjiachen.github.io/vue-element-admin-site/zh/guide/)
+**开发文档：**  [https://docs.auauz.net/](https://docs.auauz.net)
 
-#### 预览地址
-[http://auauz.net](http://auauz.net)
+**体验地址：**  [https://auauz.net/](https://auauz.net/)
 
-##### 用户账号
+**账号密码：** `admin/123456` (默认密码都是123456)
 
-- 管理员： admin
-- 测试用户： test
+#### 项目源码
 
-##### 默认密码
+|     |   后端源码  |   前端源码  |
+|---  |--- | --- |
+|  github   |  https://github.com/elunez/eladmin   |  https://github.com/elunez/eladmin-web   |
+|  码云   |  https://gitee.com/elunez/eladmin   |  https://gitee.com/elunez/eladmin-web   |
 
-- 密码： 123456
+#### 主要特性
+- 使用最新技术栈，社区资源丰富。
+- 项目按功能模块化，提升开发，测试效率。
+- 高效率开发，使用代码生成器可以一键生成前后端代码
+- 支持数据字典，可方便的对一些状态进行管理
+- 支持接口限流，避免恶意请求导致服务层压力过大
+- 支持接口级别的功能权限与数据权限，可自定义操作
+- 自定义权限注解与匿名接口注解，可快速对某一接口拦截与放行
+- 对一些常用的前端组件封装：表格数据请求、数据字典等
+- 前后端统一异常拦截处理，统一输出异常，避免繁琐的判断
+####  系统功能
+- 用户管理：提供用户的相关配置，新增用户后，默认密码为123456
+- 角色管理：对权限与菜单进行分配，可根据部门设置角色的数据权限
+- 菜单管理：已实现菜单动态路由，后端可配置化，支持多级菜单
+- 部门管理：可配置系统组织架构，树形表格展示
+- 岗位管理：配置各个部门的职位
+- 字典管理：可维护常用一些固定的数据，如：状态，性别等
+- 操作日志：记录用户操作的日志
+- 异常日志：记录异常日志，方便开发人员定位错误
+- SQL监控：采用druid 监控数据库访问性能，默认用户名admin，密码123456
+- 定时任务：整合Quartz做定时任务，加入任务日志，任务运行情况一目了然
+- 代码生成：高灵活度一键生成前后端代码，减少百分之80左右的工作任务
+- 邮件工具：配合富文本，发送html格式的邮件
+- 免费图床：使用sm.ms图床，用作公共图片上传使用，该图床不怎么稳定，不太建议使用
+- 七牛云存储：可同步七牛云存储的数据到系统，无需登录七牛云直接操作云数据
+- 支付宝支付：整合了支付宝支付并且提供了测试账号，可自行测试
 
-#### 开发环境
+#### 项目结构
+项目采用按功能分模块开发方式，将通用的配置放在公共模块，```system```模块为系统核心模块也是项目入口模块，```logging``` 模块为系统的日志模块，```tools``` 为第三方工具模块，包含了图床、邮件、七牛云、支付宝，```generator``` 为系统的代码生成模块
 
-- JDK：8
-- IDE：IntelliJ IDEA （后端）
-- IDE：JetBrains WebStorm  （前端）
-- 依赖管理：Maven
-- 数据库：MySQL 5.5.59
-
-#### 系统功能模块
-
-- 用户管理 提供用户的相关配置
-- 个人中心 提供修改头像，密码，邮箱验等功能
-- 角色管理 角色菜单分配权限
-- 权限管理 权限细化到接口
-- 菜单管理 已实现动态路由，后端可配置化
-- 系统日志 记录用户访问监控异常信息
-- 实时控制台 显示logback实时日志，可显示异常堆栈信息
-- redis管理 将redis的操作可视化，提供对redis的基本操作
-- redis限流 对系统的流量进行控制，由[everhopingandwaiting](https://github.com/everhopingandwaiting)提供
-- SQL监控 采用 druid 监控数据库访问性能
-- 定时任务管理 整合quartz做定时任务
-- 三方工具： 邮件工具，sm.ms免费图床，支付宝支付，七牛云存储
-- 富文本编辑器
-
-#### 后端技术栈
-
-- 基础框架：Spring Boot 2.1.0.RELEASE
-- 持久层框架：Spring boot Jpa
-- 安全框架：Spring Security
-- 缓存框架：Redis
-- 日志打印：logback+log4jdbc
-- 接口文档 swagger2
-- 其他：fastjson、aop、MapStruct等
-
-#### 前端技术栈
-- node
-- vue
-- vue-router
-- axios
-- element ui
+- eladmin-common 公共模块
+    - annotation 为系统自定义注解
+    - aspect 自定义注解的切面
+    - base 提供了Entity、DTO基类和mapstruct的通用mapper
+    - config 自定义权限实现、redis配置、swagger配置
+    - exception 项目统一异常的处理
+    - utils 系统通用工具类
+- eladmin-system 系统核心模块（系统启动入口）
+	- config 配置跨域与静态资源，与数据权限
+	    - thread 线程池相关
+	- modules 系统相关模块(登录授权、系统监控、定时任务等)
+- eladmin-logging 系统日志模块
+- eladmin-tools 系统第三方工具模块
+- eladmin-generator 系统代码生成模块
+    
 
 #### 系统预览
 <table>
     <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c781eec.png"/></td>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7890ab.png"/></td>
+        <td><img src="https://i.loli.net/2019/05/18/5cdf77fa8144d68788.png"/></td>
+        <td><img src="https://i.loli.net/2019/05/18/5cdf7763993e361778.png"/></td>
     </tr>
     <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c782a05.png"/></td>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7b089b.png"/></td>
+        <td><img src="https://i.loli.net/2019/05/18/5cdf7763971d453615.png"/></td>
+        <td><img src="https://i.loli.net/2019/05/18/5cdf77632e85a60423.png"/></td>
     </tr>
     <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7b9c30.png"/></td>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7b7504.png"/></td>
+        <td><img src="https://i.loli.net/2019/05/18/5cdf77632b4b090165.png"/></td>
+        <td><img src="https://i.loli.net/2019/05/18/5cdf77639929277783.png"/></td>
     </tr>
-    <tr>
-        <td><img src="https://i.loli.net/2018/12/22/5c1e10c7a9f7d.png"/></td>
-		<td><img src="https://i.imgur.com/FzVaAlS.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.imgur.com/ah3X2HG.png"/></td>
+    <tr>   
+ <td><img src="https://i.loli.net/2019/05/18/5cdf78969adc389599.png"/></td>
     </tr>
 </table>
 
+#### 项目捐赠
+项目的发展离不开你的支持，请作者喝杯咖啡吧☕  [Donate](https://docs.auauz.net/#/jz)
 #### 反馈交流
-
-- QQ交流群：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=90830191a40600e3a07acdcc4864890fca50c8e3ca1772e7e288a561d576f6c4"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Quella/el-admin" title="Quella/el-admin"></a>
-
-- 作者邮箱：elunez@qq.com
+- QQ交流群：891137268
